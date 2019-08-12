@@ -10,7 +10,7 @@ LOG_ONE_OVER_ROOT_2PI = log(1./sqrt(2*pi))
 @nb.jit(nopython=True)
 def gauss_lnprob(val, unc, model_val):
     resid = val - model_val
-    return LOG_ONE_OVER_ROOT_2PI + log(unc) - 0.5 * resid * resid / (unc * unc)
+    return LOG_ONE_OVER_ROOT_2PI - log(unc) - 0.5 * resid * resid / (unc * unc)
 
 
 @nb.jit(nopython=True)
